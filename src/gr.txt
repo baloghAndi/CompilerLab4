@@ -1,0 +1,22 @@
+Letter,Digit,Char,StringTerm,Relation,Start,DecList,Dec,Type,SimpleType,Number,ArrayType,StatementList,Statement,Expression,Expression',AssignStatement,Operation,Term,Term',Factor,IfStatement,WhileStatement,CondStatement,Relation
+0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32
+Start
+Start-DecList 29 |2 23 5 27 28 0 24 25 DecList 29 StatementList 26
+DecList-Dec|Dec 30 DecList
+Dec-Type 0   
+Type-SimpleType|ArrayType
+SimpleType-3|5|4
+ArrayType-SimpleType 27 1 28 |SimpleType 27 1 28
+StatementList-Statement|Statement StatementList  
+Statement-AssignStatement 29|Expression 29|IfStatement 29|WhileStatement 29|CondStatement 29
+Expression-Term Expression'
+Expression'-Operation Term Expression'|epsilon
+AssignStatement-0 13 Expression 
+Operation-19|20
+Term-Factor Term'
+Term'-22 Factor|21 Factor|epsilon
+Factor-23 Expression 24|0|1
+IfStatement-8 23 CondStatement 24 9 25 Statement 26|8 23 CondStatement 24 9 25 StatementList 26 10 25 StatementList 26
+WhileStatement-11 23 CondStatement 24 12 25 StatementList 26
+CondStatement-Expression Relation Expression
+Relation-14|15|16|17|18

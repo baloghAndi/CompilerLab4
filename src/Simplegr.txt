@@ -1,0 +1,29 @@
+Identifier,Letter,Digit,Char,StringTerm,Relation,MainEntry,DecList,Dec,Type,SimpleType,Number,ArrayType,StatementList,Statement,Expression,Expression',AssignStatement,Operation,Term,Term',Factor,IfStatement,WhileStatement,CondStatement,Relation
+a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,0,1,2,3,4,5,6,7,8,9,_,+,-,*,/,=,<,>,==,<=,>=,[,],{,},(,),;,,,if,then,else,do,while,int,char,String
+MainEntry
+Identifier-String 
+Letter-a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z
+Digit-0|1|2|3|4|5|6|7|8|9
+Char-Letter|Digit|_ 
+StringTerm-Char|Char StringTerm
+Relation-<|<=|=|>=|>
+MainEntry-DecList ; StatementList ;|DecList ; StatementList ; Main  
+DecList-Dec|Dec , DecList
+Dec-Type Identifier   
+Type-SimpleType|ArrayType
+SimpleType-int|String|char
+Number-Digit|Digit Number
+ArrayType-SimpleType [ Number ] |SimpleType [ Identifier ]
+StatementList-Statement|Statement StatementList  
+Statement-AssignStatement ;|Expression ;|IfStatement ;|WhileStatement ;|CondStatement ;|IOStatement ;
+Expression-Term Expression'
+Expression'-Operation Term Expression'|epsilon
+AssignStatement-Identifier = Expression 
+Operation-+|-
+Term-Factor Term'
+Term'-/ Factor|*Factor|epsilon
+Factor-( Expression )|Identifier|Number
+IfStatement-if ( CondStatement ) then { Statement }|if ( CondStatement ) then { StatementList } else { StatementList }
+WhileStatement-while ( CondStatement ) do { StatementList }
+CondStatement-Expression Relation Expression
+Relation-<|>|==|<=|>=
