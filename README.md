@@ -1,15 +1,22 @@
 # CompilerLab4
 
 #Topic:
-Regular grammars and finite automata
+Parsing and scanning (Context Free Grammar)
 
 #Assignment:
 
-Write a program that: </br>
-1. Reads a grammar from keyboard and from file </br>
-2. Displays the elements of a grammar, using a menu: set of non-terminals, set of terminals, set of productions, the productions of a given non-terminal symbol.  </br>
-3. Verifies if the grammar is regular </br>
-4. Reads the elements of a FA (Finite Automaton) from keyboard and from file </br>
-5. Displays the elements of a finite automata, using a menu: the set of states, the alphabet, all the transitions, the set of final state.  </br>
-6. Given a regular grammar constructs the corresponding finite automaton. </br>
-7. Given a finite automaton constructs the corresponding regular grammar.  </br>
+Implement a recursive descendent parser. 
+The representation of the parsing tree will be a table (using father and sibling relation)
+
+<b> The assignment is divided in the following phases: </b>
+
+<b> 1: Perform the parsing of an input sequence </b>
+
+Input: - a context free grammar - an input sequence </br>
+Output: the parsing tree corresponding to the input sequence or a message in case the sequence is not accepted. </br>
+		( Remark: Verify if the parsing method can be applied )
+
+<b> 2: Performs the parsing for a program written in your mini-language </b>
+
+Input: PIF + mini-language grammar </br>
+Output: parsing tree corresponding to the program or a message for errors (error diagnose where it is the case) </br>
